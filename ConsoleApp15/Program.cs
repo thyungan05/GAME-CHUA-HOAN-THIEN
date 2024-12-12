@@ -63,7 +63,7 @@ class Program
             if (y + i >= Console.BufferHeight) break;
 
             string line = text[i].Length > Console.BufferWidth
-                          ? text[i].Substring(0, Console.BufferWidth): text[i];
+                          ? text[i].Substring(0, Console.BufferWidth) : text[i];
 
             Console.SetCursorPosition(Math.Max(0, x), y + i);
             Console.ForegroundColor = color;
@@ -231,9 +231,10 @@ class Program
             List<string> cauHoiCuaVong = new List<string>();
 
             int diem = 0;
+            int diemTungVong = 0;
             int soThuTu = 1;
             List<int> indexList = Enumerable.Range(0, soCauHoi).OrderBy(x => rand.Next()).ToList();
-            for (int i = 0; i < soCauHoiMoiVong; i++) 
+            for (int i = 0; i < soCauHoiMoiVong; i++)
             {
                 //List<int> indexList = Enumerable.Range(0, soCauHoi).OrderBy(x => rand.Next()).ToList();
                 int index = indexList[i]; // Lấy chỉ số câu hỏi đã trộn
@@ -266,67 +267,67 @@ class Program
                 //{
                 //int index = indexList[i]; // Lấy chỉ số câu hỏi đã trộn
                 //Console.WriteLine("\nCâu hỏi số {0}: {1}", i + 1, cauhoi[index, 0]);
-                 
+
                 //List<string> luachon = options.OrderBy(x => rand.Next()).ToList();
                 Console.WriteLine("A. {0}", cauhoi[index, 1]);
                 Console.WriteLine("B. {0}", cauhoi[index, 2]);
                 Console.WriteLine("C. {0}", cauhoi[index, 3]);
                 Console.WriteLine("D. {0}", cauhoi[index, 4]);
 
-                    string chon5050 = " ";
-                    while (true)
+                string chon5050 = " ";
+                while (true)
+                {
+                    // Hỏi người chơi xem có muốn sử dụng 50/50 không
+                    try
                     {
-                        // Hỏi người chơi xem có muốn sử dụng 50/50 không
-                        try
-                        {
-                            Console.WriteLine("\nBạn có muốn sử dụng quyền trợ giúp 50/50 không? (Y/N)");
-                            chon5050 = Console.ReadLine()?.ToUpper();
-                            if (chon5050 == "Y" || chon5050 == "N")
-                                break;
-                            else
-                                throw new Exception("Mời bạn nhập đúng Y hoặc N");
-                        }
-                        catch (Exception loi)
-                        {
-                            Console.WriteLine(loi.Message);
-                        }
+                        Console.WriteLine("\nBạn có muốn sử dụng quyền trợ giúp 50/50 không? (Y/N)");
+                        chon5050 = Console.ReadLine()?.ToUpper();
+                        if (chon5050 == "Y" || chon5050 == "N")
+                            break;
+                        else
+                            throw new Exception("Mời bạn nhập đúng Y hoặc N");
                     }
-
-                    if (chon5050 == "Y")
+                    catch (Exception loi)
                     {
-                        daSuDung5050 = true;
+                        Console.WriteLine(loi.Message);
+                    }
+                }
+
+                if (chon5050 == "Y")
+                {
+                    daSuDung5050 = true;
 
                     // Sử dụng quyền trợ giúp 50/50
                     List<string> options = new List<string> { cauhoi[index, 1], cauhoi[index, 2], cauhoi[index, 3], cauhoi[index, 4] };
-                        string correctAnswer = cauhoi[index, dapAnDung[index] == "A" ? 1 : (dapAnDung[index] == "B" ? 2 : (dapAnDung[index] == "C" ? 3 : 4))];
+                    string correctAnswer = cauhoi[index, dapAnDung[index] == "A" ? 1 : (dapAnDung[index] == "B" ? 2 : (dapAnDung[index] == "C" ? 3 : 4))];
 
-                        UseFiftyFifty(options, correctAnswer);
+                    UseFiftyFifty(options, correctAnswer);
 
-                        // Hiển thị lại câu hỏi với 2 đáp án còn lại
-                        Console.WriteLine("\nSau khi sử dụng quyền trợ giúp 50/50:");
-                        DisplayOptions(options);
-                    }
-                    else if (chon5050 == "Y")
-                    {
-                        Console.WriteLine("Bạn đã sử dụng quyền trợ giúp 50/50 trước đó.");
-                    }
+                    // Hiển thị lại câu hỏi với 2 đáp án còn lại
+                    Console.WriteLine("\nSau khi sử dụng quyền trợ giúp 50/50:");
+                    DisplayOptions(options);
+                }
+                else if (chon5050 == "Y")
+                {
+                    Console.WriteLine("Bạn đã sử dụng quyền trợ giúp 50/50 trước đó.");
+                }
 
-                    Console.Write("\nNhập câu trả lời của bạn (A/B/C/D): ");
-                    string traloi = Console.ReadLine()?.ToUpper();
+                Console.Write("\nNhập câu trả lời của bạn (A/B/C/D): ");
+                string traloi = Console.ReadLine()?.ToUpper();
 
-                    if (traloi == dapAnDung[index])
-                    {
-                        Console.WriteLine("Bạn đã chọn đáp án đúng.");
-                        diem++;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Sai rồi. Đáp án đúng là: {0}.", dapAnDung[index]);
-                    }
+                if (traloi == dapAnDung[index])
+                {
+                    Console.WriteLine("Bạn đã chọn đáp án đúng.");
+                    diem++;
+                }
+                else
+                {
+                    Console.WriteLine("Sai rồi. Đáp án đúng là: {0}.", dapAnDung[index]);
+                }
                 //}
-
-                Console.WriteLine("\nBạn đã hoàn thành trò chơi với số điểm: {0}/{1}", diem, soCauHoiMoiVong);
             }
+            diemTungVong += diem;
+            Console.WriteLine("\nBạn đã hoàn thành vòng {0} với số điểm: {1}/{2}", vong, diem, soCauHoiMoiVong);
 
             // Hàm trợ giúp để hiển thị các lựa chọn
             static void DisplayOptions(List<string> options)
@@ -362,5 +363,46 @@ class Program
                 }
             }
         }
+    }
+    static int diem = 0;
+    static int diemCaoNhat = 0;
+    static void KetThucGame()
+    {
+        Console.Clear();
+        Console.WriteLine("\t\t-------------------------------");
+        Console.WriteLine("\t\t------ TRÒ CHƠI KẾT THÚC ------");
+        Console.WriteLine("\t\t-------------------------------");
+        Console.WriteLine($"\t\tĐiểm của bạn là: {diem}");
+        if (diem > diemCaoNhat)
+        {
+            diemCaoNhat = diem;
+            Console.WriteLine("\t\tXin chúc mừng bạn đã được 2 điểm rèn luyện\n");
+        }
+        Console.WriteLine("\t\tNhấn phím Enter để quay lại bảng chọn hoặc nhấn r để chơi lại");
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine($"\t\tĐIỂM CAO NHẤT: {diemCaoNhat}");
+        Console.ResetColor();
+
+        bool nenThoat = false;
+
+        while (!nenThoat)
+        {
+            ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+
+            switch (keyInfo.Key)
+            {
+                case ConsoleKey.Enter:
+                    nenThoat = true;
+                    break;
+                default:
+                    if (keyInfo.KeyChar == 'r' || keyInfo.KeyChar == 'R') // Chơi lại
+                    {
+                        XuLyChoi();
+                        nenThoat = true;
+                    }
+                    break;
+            }
+        }
+
     }
 }
