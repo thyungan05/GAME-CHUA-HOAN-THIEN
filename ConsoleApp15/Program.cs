@@ -217,37 +217,37 @@ class Program
         Console.Clear();
         Random rand = new Random(); // Đối tượng Random để trộn câu hỏi
         string[,] cauhoi = new string[30, 5] {
-     {"Những rác thải nào thuộc nhóm “Rác thải còn lại”?", "Túi nilon, hộp xốp, dụng cụ ăn uống gỗ", "Hộp sữa giấy, bìa carton", "Hộp nhựa, ống hút nhựa", "Hộp thực phẩm, đinh, ốc" },
-    {"Giấy báo, giấy vở, bìa carton thuộc loại rác nào?", "Rác thải còn lại", "Hộp sữa", "Giấy","Kim loại" },
-    {"“Mô hình 3” của UEH Go Green Station gồm:", "Chất lỏng, thực phẩm thừa, rác thải còn lại", "Thực phẩm thừa, rác tái chế, rác thải còn lại", "Chất lỏng, giấy, hộp sữa", "Thực phẩm thừa, rác tái chế, chất lỏng" },
-    {"Trung bình một người Việt Nam thải ra bao nhiêu tấn CO2 mỗi năm?","2 tấn", "3 tấn", "2,5 tấn", "2,3 tấn" },
-    {"Trước khi xả thải, UEHer, cá nhân ra vào UEH, cần phải làm gì?", "Bóc tách rác", "Thực hiện cùng lúc phương án A và C", "Phân loại rác", "Bỏ tất cả vào 1 túi" },
-    { "UEHer hay khách vào UEH cần phải tuân thủ nguyên tắc phân loại rác theo mô hình:", "Mô hình 4 và 5", "Mô hình 5 và 6", "Mô hình 3 và 7", "Mô hình 5 và 7" },
-    { "Hộp thực phẩm làm bằng kim loại sẽ thuộc nhóm nào trong Mô hình 7?", "Kim loại", "Chất lỏng", "Rác thải còn lại", "Rác tái chế" },
-    { "Loại rác nào dưới đây không thuộc nhóm “Rác tái chế”?", "Giấy báo", "Chai nhựa", "Khẩu trang y tế", "Hộp sữa giấy" },
-    { "Một chai lọ bị vỡ nên được xử lý như thế nào?", "Phân loại vào nhóm Thực phẩm thừa", "Bọc kỹ bằng giấy và bỏ vào nhóm Rác thải còn lại", "Bỏ trực tiếp vào nhóm Rác thải còn lại", "Đập nhỏ thành mảnh vụn trước khi bỏ vào thùng tái chế" },
-    { "Những rác thải nào sau đây cần được phân vào nhóm Rác tái chế: ", "Chai, lọ nhựa, rác sân vườn", "Giấy báo, ly giấy, đinh, ốc", "Dụng cụ ăn uống gỗ, ống hút nhựa", "Khăn giấy, khẩu trang" },
-    { "Khi bạn uống không hết ly matcha latte, phần thừa còn lại trong ly cần được phân loại vào nhóm: ", "Rác tái chế", "Rác thải còn lại", "Giấy", "Chất lỏng" },
-    { "Loại giấy nào dưới đây được phân loại vào nhóm \"Giấy\" trong mô hình 7? ", "Khăn giấy đã qua sử dụng", "Giấy báo, sách cũ", "Vỏ hộp sữa giấy", "Giấy vệ sinh đã qua sử dụng" },
-    { "Chất nào sau đây là chất thải khó phân hủy? ", "Giấy", "Vật chất nhôm", "Giấy nhôm", "Bông" },
-    { "Chất thải động vật có thể chuyển đổi thành… ", "Khí tự nhiên", "Khí dầu lỏng (LPG)", "Khí sinh học", "Không có cái nào ở trên" },
-    { "Chất thải rắn bao gồm tất cả các loại sau đây, ngoại trừ: ", "Báo và chai nước ngọt", "Thức ăn thừa và mảnh sân", "Ozone và carbon dioxide", "Thư rác và hộp sữa" },
-    { "Loại chất thải nào phân hủy hoàn toàn khi chôn vào đất? ", "Chất thải thực vật", "Chất thải nhựa", "Chất thải kim loại", "Chất thải động vật" },
-    { "Rác thải nào sau đây là rác hữu cơ? ", "Xương cá", "Túi nilon", "Pin đã qua sử dụng", "Hộp sữa giấy" },
-    { "Rác thải nguy hại bao gồm loại nào sau đây? ", "Hộp sữa đã qua sử dụng", "Pin, ắc quy cũ", "Lốp xe cũ", "Giấy carton" },
-    { "Kim loại phế liệu thuộc loại rác nào? ", "Rác thải nguy hại", "Rác tái chế", "Rác hữu cơ", "Rác sinh hoạt không tái chế" },
-    { "Bạn đang uống cà phê mang đi và thấy một thùng rác phân loại. Ly cà phê của bạn thuộc loại nào? ", "Rác hữu cơ", "Rác tái chế (sau khi rửa sạch)", "Rác thải nguy hại", "Rác thải thông thường" },
-    { "Một chiếc áo cũ nhưng vẫn sử dụng được nên làm gì? ","Vứt vào thùng rác tái chế", "Tặng hoặc tái sử dụng", "Vứt chung với rác sinh hoạt", "Bỏ vào thùng rác hữu cơ" },
-    { "Bạn nên xử lý dầu ăn thừa như thế nào? ", "Đổ vào bồn rửa chén", "Đổ trực tiếp ra môi trường", "Lưu trữ trong chai và giao cho đơn vị xử lý dầu thải", "Bỏ vào thùng rác tái chế" },
-    { "Pin cũ nếu không được xử lý đúng cách sẽ gây nguy hại gì?", "Gây cháy nổ", "Ô nhiễm đất và nước", "Phát tán kim loại nặng vào môi trường", "Tất cả các ý trên" },
-    { "Bình xịt (như bình sơn, thuốc diệt côn trùng) thuộc loại rác nào? ", "Rác tái chế", "Rác thải nguy hại", "Rác hữu cơ", "Rác sinh hoạt thông thường" },
-    { "Giấy thuộc phân loại rác nào trong “Mô hình 3” của UEH Go Green Station? ", "Giấy", "Rác tái chế", "Rác thải còn lại", "Nhựa tái chế" },
-    { "Tốn bao nhiêu thời gian để phân hủy 1 chai nước làm từ nhựa PET ngoài tự nhiên ", "100 - 500 năm để phân hủy hoàn toàn", "450 - 1000 năm để phân hủy hoàn toàn", "500 năm", "100 năm" },
-    { "Quy trình nào sau đây là quy trình tái chế nhựa? ", "Nghiền nhỏ, rửa sạch, nấu chảy, ép khuôn", "Đốt cháy, lọc khí, làm mát", "Phơi nắng, sấy khô, nghiền nát", "Rửa sạch, cắt nhỏ, chôn lấp, ủ phân" },
-    { "Những vật dụng nào sau đây có thể dùng thủy tinh tái chế để chế tạo? ", "Chip máy tính", "Giấy", "Bê tông", "Sơn" },
-    { "Nên chọn loại chai nhựa nào dưới đây để có thể sử dụng lại nhiều lần và giảm phát thải? ", "Chai nhựa nào cũng như nhau", "Chai nhựa PET", "Chọn loại chai nhựa rẻ nhất", "Chai nhựa HDPE" },
-    { "Mô hình nào 3R được áp dụng cho dự án UEH Green Campus để phân loại và xử lý rác gồm các bước nào sau đây: ", "Rethink, refuse, reduce", "Reduce, reuse, recycle", "Rethink, reduce, responsibility", "Refuse, reduce, reuse" }
-    };
+    {"Những rác thải nào thuộc nhóm “Rác thải còn lại”?", "A. Túi nilon, hộp xốp, dụng cụ ăn uống gỗ", "B. Hộp sữa giấy, bìa carton", "C. Hộp nhựa, ống hút nhựa", "D. Hộp thực phẩm, đinh, ốc" },
+{"Giấy báo, giấy vở, bìa carton thuộc loại rác nào?", "A. Rác thải còn lại", "B. Hộp sữa", "C. Giấy","D. Kim loại" },
+{"“Mô hình 3” của UEH Go Green Station gồm:", "A. Chất lỏng, thực phẩm thừa, rác thải còn lại", "B. Thực phẩm thừa, rác tái chế, rác thải còn lại", "C. Chất lỏng, giấy, hộp sữa", "D. Thực phẩm thừa, rác tái chế, chất lỏng" },
+{"Trung bình một người Việt Nam thải ra bao nhiêu tấn CO2 mỗi năm?","A. 2 tấn", "B. 3 tấn", "C. 2,5 tấn", "D. 2,3 tấn" },
+{"Trước khi xả thải, UEHer, cá nhân ra vào UEH, cần phải làm gì?", "A. Bóc tách rác", "B. Thực hiện cùng lúc phương án A và C", "C. Phân loại rác", "D. Bỏ tất cả vào 1 túi" },
+{ "UEHer hay khách vào UEH cần phải tuân thủ nguyên tắc phân loại rác theo mô hình:", "A. Mô hình 4 và 5", "B. Mô hình 5 và 6", "C. Mô hình 3 và 7", "D. Mô hình 5 và 7" },
+{ "Hộp thực phẩm làm bằng kim loại sẽ thuộc nhóm nào trong Mô hình 7?", "A. Kim loại", "B. Chất lỏng", "C. Rác thải còn lại", "D. Rác tái chế" },
+{ "Loại rác nào dưới đây không thuộc nhóm “Rác tái chế”?", "A. Giấy báo", "B. Chai nhựa", "C. Khẩu trang y tế", "D. Hộp sữa giấy" },
+{ "Một chai lọ bị vỡ nên được xử lý như thế nào?", "A. Phân loại vào nhóm Thực phẩm thừa", "B. Bọc kỹ bằng giấy và bỏ vào nhóm Rác thải còn lại", "C. Bỏ trực tiếp vào nhóm Rác thải còn lại", "D. Đập nhỏ thành mảnh vụn trước khi bỏ vào thùng tái chế" },
+{ "Những rác thải nào sau đây cần được phân vào nhóm Rác tái chế: ", "A. Chai, lọ nhựa, rác sân vườn", "B. Giấy báo, ly giấy, đinh, ốc", "C. Dụng cụ ăn uống gỗ, ống hút nhựa", "D. Khăn giấy, khẩu trang" },
+{ "Khi bạn uống không hết ly matcha latte, phần thừa còn lại trong ly cần được phân loại vào nhóm: ", "A. Rác tái chế", "B. Rác thải còn lại", "C. Giấy", "D. Chất lỏng" },
+{ "Loại giấy nào dưới đây được phân loại vào nhóm \"Giấy\" trong mô hình 7? ", "A. Khăn giấy đã qua sử dụng", "B. Giấy báo, sách cũ", "C. Vỏ hộp sữa giấy", "D. Giấy vệ sinh đã qua sử dụng" },
+{ "Chất nào sau đây là chất thải khó phân hủy? ", "A. Giấy", "B. Vật chất nhôm", "C. Giấy nhôm", "D. Bông" },
+{ "Chất thải động vật có thể chuyển đổi thành… ", "A. Khí tự nhiên", "B. Khí dầu lỏng (LPG)", "C. Khí sinh học", "D. Không có cái nào ở trên" },
+{ "Chất thải rắn bao gồm tất cả các loại sau đây, ngoại trừ: ", "A. Báo và chai nước ngọt", "B. Thức ăn thừa và mảnh sân", "C. Ozone và carbon dioxide", "D. Thư rác và hộp sữa" },
+{ "Loại chất thải nào phân hủy hoàn toàn khi chôn vào đất? ", "A. Chất thải thực vật", "B. Chất thải nhựa", "C. Chất thải kim loại", "D. Chất thải động vật" },
+{ "Rác thải nào sau đây là rác hữu cơ? ", "A. Xương cá", "B. Túi nilon", "C. Pin đã qua sử dụng", "D. Hộp sữa giấy" },
+{ "Rác thải nguy hại bao gồm loại nào sau đây? ", "A. Hộp sữa đã qua sử dụng", "B. Pin, ắc quy cũ", "C. Lốp xe cũ", "D. Giấy carton" },
+{ "Kim loại phế liệu thuộc loại rác nào? ", "A. Rác thải nguy hại", "B. Rác tái chế", "C. Rác hữu cơ", "D. Rác sinh hoạt không tái chế" },
+{ "Bạn đang uống cà phê mang đi và thấy một thùng rác phân loại. Ly cà phê của bạn thuộc loại nào? ", "A. Rác hữu cơ", "B. Rác tái chế (sau khi rửa sạch)", "C. Rác thải nguy hại", "D. Rác thải thông thường" },
+{ "Một chiếc áo cũ nhưng vẫn sử dụng được nên làm gì? ","A. Vứt vào thùng rác tái chế", "B. Tặng hoặc tái sử dụng", "C. Vứt chung với rác sinh hoạt", "D. Bỏ vào thùng rác hữu cơ" },
+{ "Bạn nên xử lý dầu ăn thừa như thế nào? ", "A. Đổ vào bồn rửa chén", "B. Đổ trực tiếp ra môi trường", "C. Lưu trữ trong chai và giao cho đơn vị xử lý dầu thải", "D. Bỏ vào thùng rác tái chế" },
+{ "Pin cũ nếu không được xử lý đúng cách sẽ gây nguy hại gì?", "A. Gây cháy nổ", "B. Ô nhiễm đất và nước", "C. Phát tán kim loại nặng vào môi trường", "D. Tất cả các ý trên" },
+{ "Bình xịt (như bình sơn, thuốc diệt côn trùng) thuộc loại rác nào? ", "A. Rác tái chế", "B. Rác thải nguy hại", "C. Rác hữu cơ", "D. Rác sinh hoạt thông thường" },
+{ "Giấy thuộc phân loại rác nào trong “Mô hình 3” của UEH Go Green Station? ", "A. Giấy", "B. Rác tái chế", "C. Rác thải còn lại", "D. Nhựa tái chế" },
+{ "Tốn bao nhiêu thời gian để phân hủy 1 chai nước làm từ nhựa PET ngoài tự nhiên ", "A. 100 - 500 năm để phân hủy hoàn toàn", "B. 450 - 1000 năm để phân hủy hoàn toàn", "C. 500 năm", "D. 100 năm" },
+{ "Quy trình nào sau đây là quy trình tái chế nhựa? ", "A. Nghiền nhỏ, rửa sạch, nấu chảy, ép khuôn", "B. Đốt cháy, lọc khí, làm mát", "C. Phơi nắng, sấy khô, nghiền nát", "D. Rửa sạch, cắt nhỏ, chôn lấp, ủ phân" },
+{ "Những vật dụng nào sau đây có thể dùng thủy tinh tái chế để chế tạo? ", "A. Chip máy tính", "B. Giấy", "C. Bê tông", "D. Sơn" },
+{ "Nên chọn loại chai nhựa nào dưới đây để có thể sử dụng lại nhiều lần và giảm phát thải? ", "A. Chai nhựa nào cũng như nhau", "B. Chai nhựa PET", "C. Chọn loại chai nhựa rẻ nhất", "D. Chai nhựa HDPE" },
+{ "Mô hình nào 3R được áp dụng cho dự án UEH Green Campus để phân loại và xử lý rác gồm các bước nào sau đây: ", "A. Rethink, refuse, reduce", "B. Reduce, reuse, recycle", "C. Rethink, reduce, responsibility", "D. Refuse, reduce, reuse" }
+};
 
         string[] dapAnDung = { "A", "C", "B", "D", "B", "C", "A", "C", "B", "B", "D", "B", "C", "C", "C", "A", "A", "B", "B", "B", "B", "C", "D", "B", "B", "B", "A", "C", "D", "B" }; // Đáp án đúng
         bool daSuDung5050 = false; // Đánh dấu quyền trợ giúp 50/50
@@ -370,7 +370,7 @@ class Program
                 {
                     if (!string.IsNullOrEmpty(options[i]))
                     {
-                        Console.WriteLine($"{optionLetter}. {options[i]}");
+                        Console.WriteLine($" {options[i]}");
                     }
                     optionLetter++;
                 }*/
