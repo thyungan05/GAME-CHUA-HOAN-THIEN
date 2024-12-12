@@ -273,7 +273,7 @@ class Program
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"╔══════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗");
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("\nCâu hỏi số {0}: {1}", i + 1, cauhoi[i, 0]);
+                Console.WriteLine("\nCâu hỏi số {0}: {1}", i + 1, cauhoi[index, 0]);
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"╠══════════════════════════════════════════════════════════════════════════════════════════════════════════════════╣");
 
