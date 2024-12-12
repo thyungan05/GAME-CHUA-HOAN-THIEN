@@ -85,8 +85,17 @@ class Program
 
         // In dòng trên cùng của menu
         Console.SetCursorPosition(xStart, yStart);
-        Console.WriteLine("┏━━━━━━━━━━━━━━━━━┓   ┏━━━━━━━━━━━━━━━━━┓   ┏━━━━━━━━━━━━━━━━━┓   ┏━━━━━━━━━━━━━━━━━┓");
-
+        //Console.WriteLine("┏━━━━━━━━━━━━━━━━━┓   ┏━━━━━━━━━━━━━━━━━┓   ┏━━━━━━━━━━━━━━━━━┓   ┏━━━━━━━━━━━━━━━━━┓");
+        Console.ForegroundColor = colors[0];
+        Console.Write("┏━━━━━━━━━━━━━━━━━┓   ");
+        Console.ForegroundColor = colors[1];
+        Console.Write("┏━━━━━━━━━━━━━━━━━┓   ");
+        Console.ForegroundColor = colors[2];
+        Console.Write("┏━━━━━━━━━━━━━━━━━┓   ");
+        Console.ForegroundColor = colors[3];
+        Console.WriteLine("┏━━━━━━━━━━━━━━━━━┓   ");
+        Console.ResetColor();
+        
         // In dòng giữa với từng màu cho chức năng
         Console.SetCursorPosition(xStart, yStart + 1);
         Console.ForegroundColor = colors[0];
@@ -100,9 +109,18 @@ class Program
         Console.ResetColor();
 
         // In dòng dưới cùng của menu
-        Console.SetCursorPosition(xStart, yStart + 2);
-        Console.WriteLine("┗━━━━━━━━━━━━━━━━━┛   ┗━━━━━━━━━━━━━━━━━┛   ┗━━━━━━━━━━━━━━━━━┛   ┗━━━━━━━━━━━━━━━━━┛");
 
+        Console.SetCursorPosition(xStart, yStart + 2);
+        //Console.WriteLine("┗━━━━━━━━━━━━━━━━━┛   ┗━━━━━━━━━━━━━━━━━┛   ┗━━━━━━━━━━━━━━━━━┛   ┗━━━━━━━━━━━━━━━━━┛");
+        Console.ForegroundColor = colors[0];
+        Console.Write("┗━━━━━━━━━━━━━━━━━┛   ");
+        Console.ForegroundColor = colors[1];
+        Console.Write("┗━━━━━━━━━━━━━━━━━┛   ");
+        Console.ForegroundColor = colors[2];
+        Console.Write("┗━━━━━━━━━━━━━━━━━┛   ");
+        Console.ForegroundColor = colors[3];
+        Console.WriteLine("┗━━━━━━━━━━━━━━━━━┛   ");
+        Console.ResetColor();
         // In lời nhắc nhập lựa chọn bên dưới menu
         string prompt = "Mời bấm phím để lựa chọn: ";
         int promptX = (Console.BufferWidth - prompt.Length) / 2;
@@ -129,9 +147,9 @@ class Program
                 NhapThongTin();
                 break;
 
-            /*case 2:
+            case 2:
                 HuongDanChoi();
-                break;*/
+                break;
 
             case 3:
                 Console.WriteLine("Cài đặt nhạc chưa được triển khai.");
@@ -179,7 +197,21 @@ class Program
             }
         }
     }
+    static void HuongDanChoi()
+    {
+        Console.Clear();
+        Console.WriteLine("\t\tHƯỚNG DẪN");
+        Console.WriteLine("Khi bạn bấm vào chơi thì máy sẽ ngẫu nhiên đưa ra 1 câu hỏi trong bộ câu hỏi có sẵn. ");
+        Console.WriteLine("Sau đó bạn sẽ suy nghĩ và chọn đáp án đúng.");
+        Console.WriteLine("Do đây là mô hình phân loại 7 nên sẽ quy ước: \r\n1. Chất lỏng\r\n2. Thực phẩm thừa\r\n3. Kim loại\r\n4. Nhựa tái chế\r\n5. Giấy\r\n6. Hộp sữa \r\n7. Rác thải còn lại. \r\n");
+        Console.WriteLine("1 round sẽ gồm 5 phút để chơi: trả lời đúng 1 câu sẽ được 1 điểm");
+        Console.WriteLine("NHỚ TẮT BỘ GÕ TIẾNG VIỆT TRƯỚC KHI CHƠI");
+        Console.WriteLine("\nNhấn ESC để thoát hướng dẫn");
 
+        while (Console.ReadKey().Key != ConsoleKey.Escape) ;
+
+    }
+    static int diemCaoNhat = 0;
     static void XuLyChoi()
     {
         Console.Clear();
@@ -222,7 +254,7 @@ class Program
         int soCauHoi = cauhoi.GetLength(0); // Lưu số lượng câu hỏi vào biến
         int soVong = 3; // 3 vòng chơi
         int soCauHoiMoiVong = 5; // 5 câu hỏi mỗi vòng
-
+        int tongDiem = 0; 
         // Quá trình chơi
         for (int vong = 1; vong <= soVong; vong++)
         {
@@ -328,7 +360,8 @@ class Program
             }
             diemTungVong += diem;
             Console.WriteLine("\nBạn đã hoàn thành vòng {0} với số điểm: {1}/{2}", vong, diem, soCauHoiMoiVong);
-
+            //Cộng điểm của vòng hiện tại vào tồng điểm
+            tongDiem += diem;
             // Hàm trợ giúp để hiển thị các lựa chọn
             static void DisplayOptions(List<string> options)
             {
@@ -363,22 +396,25 @@ class Program
                 }
             }
         }
+        // Sau khi trò chơi kết thúc, gọi hàm KetThucGame
+        Console.ReadKey();
+        KetThucGame(tongDiem);
     }
-    static int diem = 0;
-    static int diemCaoNhat = 0;
-    static void KetThucGame()
+    //static int diem = 0;
+    //atic int diemCaoNhat = 0;
+    static void KetThucGame(int tongDiem)
     {
         Console.Clear();
         Console.WriteLine("\t\t-------------------------------");
-        Console.WriteLine("\t\t------ TRÒ CHƠI KẾT THÚC ------");
+        Console.WriteLine("\t\t|      TRÒ CHƠI KẾT THÚC       |");
         Console.WriteLine("\t\t-------------------------------");
-        Console.WriteLine($"\t\tĐiểm của bạn là: {diem}");
-        if (diem > diemCaoNhat)
+        Console.WriteLine($"\t\tĐiểm của bạn là: {tongDiem}");
+        if (tongDiem > 10)
         {
-            diemCaoNhat = diem;
+            diemCaoNhat = tongDiem;
             Console.WriteLine("\t\tXin chúc mừng bạn đã được 2 điểm rèn luyện\n");
         }
-        Console.WriteLine("\t\tNhấn phím Enter để quay lại bảng chọn hoặc nhấn r để chơi lại");
+        else Console.WriteLine("\t\tRất tiếc. Bạn không được nhận 2 điểm rèn luyện. Nhấn phím Enter để quay lại bảng chọn hoặc nhấn r để chơi lại");
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine($"\t\tĐIỂM CAO NHẤT: {diemCaoNhat}");
         Console.ResetColor();
@@ -406,3 +442,4 @@ class Program
 
     }
 }
+
