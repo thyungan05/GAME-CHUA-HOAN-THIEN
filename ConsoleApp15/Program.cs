@@ -325,7 +325,7 @@ class Program
                     }
                 }
 
-                if (chon5050 == "Y")
+                if (chon5050 == "Y" && !daSuDung5050)
                 {
                     daSuDung5050 = true;
 
@@ -339,7 +339,7 @@ class Program
                     Console.WriteLine("\nSau khi sử dụng quyền trợ giúp 50/50:");
                     DisplayOptions(options);
                 }
-                else if (chon5050 == "Y")
+                else 
                 {
                     Console.WriteLine("Bạn đã sử dụng quyền trợ giúp 50/50 trước đó.");
                 }
